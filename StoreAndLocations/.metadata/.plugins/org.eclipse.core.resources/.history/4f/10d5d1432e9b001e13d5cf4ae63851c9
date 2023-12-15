@@ -1,0 +1,12 @@
+package com.example.service;
+
+import com.example.exception.NotFoundException;
+import com.example.model.Location;
+import com.example.model.Store;
+
+public interface StoreService {
+	
+	public Store getStoreById (Integer storeId) throws NotFoundException;
+	
+	public Location getLocationByStoreId(Integer storeId) throws NotFoundException;
+}

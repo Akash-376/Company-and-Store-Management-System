@@ -1,0 +1,29 @@
+package com.example.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.exception.NotFoundException;
+import com.example.model.Store;
+import com.example.repository.StoreRepository;
+
+@Service
+public class StoreServiceImpl implements StoreService{
+
+	@Autowired
+	private StoreRepository storeRepository;
+	
+	@Override
+	public Store getStoreById(Integer storeId) throws NotFoundException {
+		
+		Store st = storeRepository.findById(storeId).orElseThrow(()-> new NotFoundException("Store not found"));
+		return st;
+	}
+
+	@Override
+	public Store getLocationByStoreId(Integer storeId) throws NotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

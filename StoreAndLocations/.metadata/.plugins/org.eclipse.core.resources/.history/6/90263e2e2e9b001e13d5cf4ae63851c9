@@ -1,0 +1,14 @@
+package com.example.service;
+
+import java.util.List;
+
+import com.example.exception.NotFoundException;
+import com.example.model.Store;
+
+public interface Location {
+	
+	public Location getLocationById (Integer locationId) throws NotFoundException;
+	
+	public List<Store> getStoresByCity(String city) throws NotFoundException;
+
+}

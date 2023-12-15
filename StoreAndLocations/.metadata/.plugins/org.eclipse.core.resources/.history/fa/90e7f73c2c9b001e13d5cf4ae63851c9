@@ -1,0 +1,36 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.example.model.Company;
+import com.example.model.Store;
+import com.example.repository.CompanyRepository;
+import com.example.repository.StoreRepository;
+
+@Service
+public class CompanyServiceImpl implements CompanyService{
+	
+	@Autowired
+	private StoreRepository storeRepository;
+	
+	@Autowired
+	private CompanyRepository companyRepository;
+
+	@Override
+	public List<Store> getAllStoresByCompanyId(Integer companyId) throws RuntimeException {
+		// TODO Auto-generated method stub
+		Company comp = companyRepository.findById(companyId).orElseThrow(()-> RuntimeException);
+		return null;
+	}
+
+	@Override
+	public List<Store> getAllStoreByCity(String city) throws RuntimeException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

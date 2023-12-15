@@ -1,0 +1,10 @@
+package com.example.model;
+
+public class Store {
+	
+	private Integer storeId;
+	
+	private String name;
+	
+	private Location location;
+}

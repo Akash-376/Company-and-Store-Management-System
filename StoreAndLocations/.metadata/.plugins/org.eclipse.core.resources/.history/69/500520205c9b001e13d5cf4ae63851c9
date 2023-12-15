@@ -1,0 +1,19 @@
+package com.example.service;
+
+import java.util.List;
+
+import com.example.exception.ResourceNotFoundException;
+import com.example.model.Company;
+import com.example.model.Store;
+
+public interface CompanyService {
+	
+	public List<Store> getAllStoresByCompanyId(Integer companyId) throws ResourceNotFoundException;
+	
+	public Company addCompany(Company company);
+	
+	public Company addExistingStoreToCompanyByCompanyIdAndStoreId(Integer companyId, Integer storeId) throws ResourceNotFoundException;
+	
+	public List<Company> getListOfCompanies() throws ResourceNotFoundException;
+	
+}

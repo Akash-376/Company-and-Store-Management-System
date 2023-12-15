@@ -1,0 +1,35 @@
+package com.example.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.exception.NotFoundException;
+import com.example.model.Location;
+import com.example.model.Store;
+import com.example.repository.LocationRepository;
+
+
+public class LocationServiceImpl implements LocationService{
+
+	@Autowired
+	private LocationRepository locationRepository;
+	@Override
+	public Location getLocationById(Integer locationId) throws NotFoundException {
+		// TODO Auto-generated method stub
+		return locationRepository.findById(locationId).orElseThrow(()-> new NotFoundException("location not found"));
+	}
+
+	@Override
+	public List<Store> getStoresByCity(String city) throws NotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String addLocation(LocationService locationService) throws NotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

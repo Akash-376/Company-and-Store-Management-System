@@ -1,0 +1,17 @@
+package com.example.service;
+
+import java.util.List;
+
+import com.example.exception.ResourceFoundException;
+import com.example.model.Company;
+import com.example.model.Store;
+
+public interface CompanyService {
+	
+	public List<Store> getAllStoresByCompanyId(Integer companyId) throws ResourceFoundException;
+	
+	public Company addCompany(Company company);
+	
+	public Company addExistingStoreToCompanyByCompanyIdAndStoreId(Integer companyId, Integer storeId) throws ResourceFoundException;
+	
+}

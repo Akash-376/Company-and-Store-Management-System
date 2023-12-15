@@ -1,0 +1,41 @@
+package com.example.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.exception.ResourceNotFoundException;
+import com.example.model.Location;
+import com.example.model.Store;
+import com.example.repository.StoreRepository;
+
+@Service
+public class StoreServiceImpl implements StoreService{
+
+	@Autowired
+	private StoreRepository storeRepository;
+	
+	@Override
+	public Store getStoreById(Integer storeId) throws ResourceNotFoundException {
+		
+		Store st = storeRepository.findById(storeId).orElseThrow(()-> new ResourceNotFoundException("Store not found"));
+		return st;
+	}
+
+	@Override
+	public Location getLocationByStoreId(Integer storeId) throws ResourceNotFoundException {
+		
+		Store st = storeRepository.findById(storeId).orElseThrow(()-> new ResourceNotFoundException("Store not found"));
+		return st.getLocation();
+	}
+
+	@Override
+	public Store addStore(Store store) throws ResourceNotFoundException {
+		// TODO Auto-generated method stub
+		
+		Location location = store.getLocation();
+		Store savedStore = storeRepository.save(store);
+		
+		return savedStore;
+	}
+
+}

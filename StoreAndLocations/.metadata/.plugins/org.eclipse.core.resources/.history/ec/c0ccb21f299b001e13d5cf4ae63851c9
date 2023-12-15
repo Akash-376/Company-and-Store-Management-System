@@ -1,0 +1,32 @@
+package com.example.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@Setter
+@Getter
+public class Company {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer companyId;
+	
+	private String name;
+	
+	@ManyToMany
+	@JoinColumn(name = "storeId")
+	private List<Store> stores = new ArrayList<>();
+	
+	
+}

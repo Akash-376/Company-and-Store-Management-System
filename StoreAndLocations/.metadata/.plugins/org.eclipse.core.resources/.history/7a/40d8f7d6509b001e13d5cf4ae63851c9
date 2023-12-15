@@ -1,0 +1,42 @@
+package com.example.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@NoArgsConstructor
+@Setter
+@Getter
+public class Company {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer companyId;
+	
+	private String name;
+	
+//	@ManyToMany
+//	@JoinTable(joinColumns = @JoinColumn(name = "companyId"),
+//	inverseJoinColumns = @JoinColumn(name = "storeId"))
+//	private List<Store> stores = new ArrayList<>();
+	
+	
+	
+	@OneToMany()
+	@JsonIgnore
+    private List<Store> stores = new ArrayList<>();
+	
+	
+	
+	
+}
